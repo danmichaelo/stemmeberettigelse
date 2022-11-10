@@ -1,6 +1,6 @@
-# This file is used by toollabs infrastructure.
+# This file is used by Toolforge infrastructure.
 # Please do not edit manually at this time.
+# Thu Nov 10 07:01:43 2022
 backend: kubernetes
-distribution: debian
-version: 2
-web: python
+version: 4
+web: python3.9
