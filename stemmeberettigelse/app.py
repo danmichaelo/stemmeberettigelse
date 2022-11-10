@@ -12,7 +12,7 @@ import locale
 
 #from wsgiref.handlers import CGIHandler
 
-from cgi import escape
+from html import escape
 #import urlparse
 #from mako.template import Template
 #from mako.lookup import TemplateLookup
