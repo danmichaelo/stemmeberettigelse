@@ -28,255 +28,286 @@ for loc in ['no_NO', 'nb_NO.utf8']:
     except locale.Error:
         pass
 
-events = {
-    0: {
-        'name': 'Åremålsvalg 4. pulje 2012',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2012-11-15',
+now = datetime.datetime.today()
+
+if now.month > 6:
+    event = {
+        'name': f'Åremålsvalg høsten {now.year}',
+        'url': f'//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/{now.year}-11-15',
         'reqs': [
             ['edits_total', 200],
-            ['edits_between', 20120914220000, 20121114230000, 30],
-            ['registration_before', 20120914230000],
+            ['edits_between', int(f'{now.year}0914220000'), int(f'{now.year}1114230000'), 30],
+            ['registration_before', int(f'{now.year}0914230000')],
             ['has_not_role', 'bot']
         ],
         'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 14. september til 15. november 2012 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+            f'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 14. september til 15. november {now.year} (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{{USER}}">sjekk blokklogg</a>)'
         ]
-    },
-    1: {
-        'name': 'Åremålsvalg 1. pulje 2013',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2013-05-15',
+    }
+else:
+    event = {
+        'name': f'Åremålsvalg våren {now.year}',
+        'url': f'//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/{now.year}-05-15',
         'reqs': [
             ['edits_total', 200],
-            ['edits_between', 20130314230000, 20130514220000, 30],
-            ['registration_before', 20130314230000],
+            ['edits_between', int(f'{now.year}0314230000'), int(f'{now.year}0514220000'), 30],
+            ['registration_before', int(f'{now.year}0314230000')],
             ['has_not_role', 'bot']
         ],
         'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2013 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+            f'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 14. mars til 15. mai {now.year} (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{{USER}}">sjekk blokklogg</a>)'
         ]
-    },
-    2: {
-        'name': 'Åremålsvalg 2. pulje 2013',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2013-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20130914220000, 20131114230000, 30],
-            ['registration_before', 20130914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2013 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    3: {
-        'name': 'Åremålsvalg 3. pulje 2014',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2014-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20140314230000, 20140514220000, 30],
-            ['registration_before', 20140314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2014 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    4: {
-        'name': 'Åremålsvalg 4. pulje 2014',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2014-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20140914220000, 20141114230000, 30],
-            ['registration_before', 20140914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2014 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    5: {
-        'name': 'Åremålsvalg 1. pulje 2015',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2015-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20150314230000, 20150514220000, 30],
-            ['registration_before', 20150314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2015 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    6: {
-        'name': 'Åremålsvalg 2. pulje 2015',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2015-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20150914220000, 20151114230000, 30],
-            ['registration_before', 20150914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2015 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    7: {
-        'name': 'Åremålsvalg 1. pulje 2016',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2016-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20160314230000, 20160514220000, 30],
-            ['registration_before', 20160314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2016 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    8: {
-        'name': 'Åremålsvalg 2. pulje 2016',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2016-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20160914220000, 20161114230000, 30],
-            ['registration_before', 20160914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2016 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    9: {
-        'name': 'Åremålsvalg 1. pulje 2017',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2017-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20170314230000, 20170514220000, 30],
-            ['registration_before', 20170314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2017 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    10: {
-        'name': 'Åremålsvalg 2. pulje 2017',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2017-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20170914220000, 20171114230000, 30],
-            ['registration_before', 20170914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2017 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    11: {
-        'name': 'Åremålsvalg 1. pulje 2018',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2018-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20180314230000, 20180514220000, 30],
-            ['registration_before', 20180314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2018 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    12: {
-        'name': 'Åremålsvalg 2. pulje 2018',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2018-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20180914220000, 20181114230000, 30],
-            ['registration_before', 20180914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2018 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    13: {
-        'name': 'Åremålsvalg 1. pulje 2019',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2019-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20190314230000, 20190514220000, 30],
-            ['registration_before', 20190314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2019 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    14: {
-        'name': 'Åremålsvalg 2. pulje 2019',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2019-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20190914220000, 20191114230000, 30],
-            ['registration_before', 20190914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2019 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    15: {
-        'name': 'Åremålsvalg 1. pulje 2020',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2020-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20200314230000, 20200514220000, 30],
-            ['registration_before', 20200314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2020 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    16: {
-        'name': 'Åremålsvalg 2. pulje 2020',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2020-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20200914220000, 20201114230000, 30],
-            ['registration_before', 20200914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2020 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    17: {
-        'name': 'Åremålsvalg 1. pulje 2021',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2021-05-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20210314230000, 20210514220000, 30],
-            ['registration_before', 20210314230000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2021 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-    18: {
-        'name': 'Åremålsvalg 2. pulje 2021',
-        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2021-11-15',
-        'reqs': [
-            ['edits_total', 200],
-            ['edits_between', 20210914220000, 20211114230000, 30],
-            ['registration_before', 20210914220000],
-            ['has_not_role', 'bot']
-        ],
-        'extra_reqs': [
-            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2021 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
-        ]
-    },
-}
+    }
+
+# events = {
+#     0: {
+#         'name': 'Åremålsvalg 4. pulje 2012',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2012-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20120914220000, 20121114230000, 30],
+#             ['registration_before', 20120914230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 14. september til 15. november 2012 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     1: {
+#         'name': 'Åremålsvalg 1. pulje 2013',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2013-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20130314230000, 20130514220000, 30],
+#             ['registration_before', 20130314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2013 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     2: {
+#         'name': 'Åremålsvalg 2. pulje 2013',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2013-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20130914220000, 20131114230000, 30],
+#             ['registration_before', 20130914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2013 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     3: {
+#         'name': 'Åremålsvalg 3. pulje 2014',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2014-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20140314230000, 20140514220000, 30],
+#             ['registration_before', 20140314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2014 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     4: {
+#         'name': 'Åremålsvalg 4. pulje 2014',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2014-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20140914220000, 20141114230000, 30],
+#             ['registration_before', 20140914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2014 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     5: {
+#         'name': 'Åremålsvalg 1. pulje 2015',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2015-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20150314230000, 20150514220000, 30],
+#             ['registration_before', 20150314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2015 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     6: {
+#         'name': 'Åremålsvalg 2. pulje 2015',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2015-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20150914220000, 20151114230000, 30],
+#             ['registration_before', 20150914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2015 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     7: {
+#         'name': 'Åremålsvalg 1. pulje 2016',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2016-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20160314230000, 20160514220000, 30],
+#             ['registration_before', 20160314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2016 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     8: {
+#         'name': 'Åremålsvalg 2. pulje 2016',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2016-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20160914220000, 20161114230000, 30],
+#             ['registration_before', 20160914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2016 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     9: {
+#         'name': 'Åremålsvalg 1. pulje 2017',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2017-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20170314230000, 20170514220000, 30],
+#             ['registration_before', 20170314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2017 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     10: {
+#         'name': 'Åremålsvalg 2. pulje 2017',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2017-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20170914220000, 20171114230000, 30],
+#             ['registration_before', 20170914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2017 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     11: {
+#         'name': 'Åremålsvalg 1. pulje 2018',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2018-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20180314230000, 20180514220000, 30],
+#             ['registration_before', 20180314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2018 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     12: {
+#         'name': 'Åremålsvalg 2. pulje 2018',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2018-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20180914220000, 20181114230000, 30],
+#             ['registration_before', 20180914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2018 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     13: {
+#         'name': 'Åremålsvalg 1. pulje 2019',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2019-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20190314230000, 20190514220000, 30],
+#             ['registration_before', 20190314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2019 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     14: {
+#         'name': 'Åremålsvalg 2. pulje 2019',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2019-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20190914220000, 20191114230000, 30],
+#             ['registration_before', 20190914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2019 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     15: {
+#         'name': 'Åremålsvalg 1. pulje 2020',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2020-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20200314230000, 20200514220000, 30],
+#             ['registration_before', 20200314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2020 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     16: {
+#         'name': 'Åremålsvalg 2. pulje 2020',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2020-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20200914220000, 20201114230000, 30],
+#             ['registration_before', 20200914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2020 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     17: {
+#         'name': 'Åremålsvalg 1. pulje 2021',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2021-05-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20210314230000, 20210514220000, 30],
+#             ['registration_before', 20210314230000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2021 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+#     18: {
+#         'name': 'Åremålsvalg 2. pulje 2021',
+#         'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2021-11-15',
+#         'reqs': [
+#             ['edits_total', 200],
+#             ['edits_between', 20210914220000, 20211114230000, 30],
+#             ['registration_before', 20210914220000],
+#             ['has_not_role', 'bot']
+#         ],
+#         'extra_reqs': [
+#             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2021 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+#         ]
+#     },
+# }
 
 
 @app.route('/')
@@ -295,8 +326,8 @@ def show_index():
     uname = request.args.get('user', '')
     if len(uname) > 1:
         uname = uname[0].upper() + uname[1:]
-    event = int(request.args.get('event', 17))
-    event = events[event]
+    # event = int(request.args.get('event', 17))
+    # event = events[event]
 
     osl = pytz.timezone('Europe/Oslo')
 
