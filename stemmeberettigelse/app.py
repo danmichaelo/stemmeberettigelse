@@ -237,6 +237,45 @@ events = {
             'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2020 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
         ]
     },
+    16: {
+        'name': 'Åremålsvalg 2. pulje 2020',
+        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2020-11-15',
+        'reqs': [
+            ['edits_total', 200],
+            ['edits_between', 20200914220000, 20201114230000, 30],
+            ['registration_before', 20200914220000],
+            ['has_not_role', 'bot']
+        ],
+        'extra_reqs': [
+            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2020 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+        ]
+    },
+    17: {
+        'name': 'Åremålsvalg 1. pulje 2021',
+        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2021-05-15',
+        'reqs': [
+            ['edits_total', 200],
+            ['edits_between', 20210314230000, 20210514220000, 30],
+            ['registration_before', 20210314230000],
+            ['has_not_role', 'bot']
+        ],
+        'extra_reqs': [
+            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. mars til 15. mai 2021 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+        ]
+    },
+    18: {
+        'name': 'Åremålsvalg 2. pulje 2021',
+        'url': '//no.wikipedia.org/wiki/Wikipedia:Administratorer/kandidater/2021-11-15',
+        'reqs': [
+            ['edits_total', 200],
+            ['edits_between', 20210914220000, 20211114230000, 30],
+            ['registration_before', 20210914220000],
+            ['has_not_role', 'bot']
+        ],
+        'extra_reqs': [
+            'brukeren ikke har vært blokkert i mer enn to dager i perioden fra og med 15. september til 15. november 2021 (<a href="//no.wikipedia.org/w/index.php?title=Spesial%3ALogg&type=block&user=&page=Bruker%3A{USER}">sjekk blokklogg</a>)'
+        ]
+    },
 }
 
 
@@ -256,7 +295,7 @@ def show_index():
     uname = request.args.get('user', '')
     if len(uname) > 1:
         uname = uname[0].upper() + uname[1:]
-    event = int(request.args.get('event', 14))
+    event = int(request.args.get('event', 17))
     event = events[event]
 
     osl = pytz.timezone('Europe/Oslo')
